@@ -2,14 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+           stage('Build Docker Image') {
             steps {
-                echo 'Building..'
+                script {
+                  sh 'docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t username/demo:latest --push .'
+                }
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing...'
             }
         }
         stage('Deploy') {

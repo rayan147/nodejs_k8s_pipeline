@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-      registry = 'rayan147/nodejsapp'
+      registry = 'rayan147/nodejsapp:latest'
       registryCredential = '79c0e82e-d596-4999-90bd-d759317cda6f'
       dockerImage = '' 
   
@@ -15,7 +15,13 @@ pipeline {
           stage('Building our image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                    def version = readFile('VERSION')
+                    def versions = version.split('\\.')
+                    def major = versions[0]
+                    def minor = versions[0] + '.' + versions[1]
+                    def patch = version.trim()
+
+                    dockerImage = docker.build(registry)
 
                 }
             } 
@@ -30,6 +36,9 @@ pipeline {
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push() 
+                        dockerImage.push(major)
+                        dockerImage.push(minor)
+                        dockerImage.push(patch)
                     }
                 } 
             }

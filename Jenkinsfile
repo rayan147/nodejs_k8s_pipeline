@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-      registry = 'rayan147/nodejsapp:latest'
+      registry = 'rayan147/nodejsapp:lastest'
       registryCredential = '79c0e82e-d596-4999-90bd-d759317cda6f'
       dockerImage = '' 
   
@@ -36,9 +36,7 @@ pipeline {
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push() 
-                        dockerImage.push(major)
-                        dockerImage.push(minor)
-                        dockerImage.push(patch)
+                        dockerImage.tag( 'latest' )
                     }
                 } 
             }

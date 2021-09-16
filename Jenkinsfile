@@ -34,6 +34,13 @@ pipeline {
                 } 
             }
         } 
+        stage('add jenkins as sudo'){
+            steps {
+                script {
+                    sh 'sudo usermod -aG jenkins'
+                }
+            }
+        }
         stage('Deploy to k8s'){
             steps {
                 script {

@@ -1,7 +1,7 @@
 pipeline {
       agent { dockerfile true }
     environment {
-      registry = 'rayan147/nodejsapp:lastest'
+      registry = 'rayan147/nodejsapp'
       registryCredential = '79c0e82e-d596-4999-90bd-d759317cda6f'
       dockerImage = '' 
   

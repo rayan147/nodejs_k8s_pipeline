@@ -37,10 +37,8 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push() 
                         dockerImage.tag( 'latest' )
-                        dockerImage.tag( '$major' )
-                        dockerImage.tag( '$minor' )
-                        dockerImage.tag( '$patch' )
-                        
+
+
                     }
                 } 
             }
@@ -53,5 +51,6 @@ pipeline {
                 }
             }
         }
+        
     }
 }

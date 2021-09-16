@@ -1,5 +1,5 @@
 pipeline {
-      agent { dockerfile true }
+      agent any
     environment {
       registry = 'rayan147/nodejsapp'
       registryCredential = '79c0e82e-d596-4999-90bd-d759317cda6f'

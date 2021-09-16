@@ -14,14 +14,9 @@ pipeline {
         } 
           stage('Building our image') { 
             steps { 
-                script { 
-                    def version = readFile('VERSION')
-                    def versions = version.split('\\.')
-                    def major = versions[0]
-                    def minor = versions[0] + '.' + versions[1]
-                    def patch = version.trim()
+                script {
 
-                    dockerImage = docker.build(registry)
+                    dockerImage = docker.build(registry + ':' + '${env.BUILD_ID}')
 
                 }
             } 
@@ -36,7 +31,7 @@ pipeline {
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push() 
-                        dockerImage.tag( 'latest' )
+                        dockerImage.push('latest')
 
 
                     }

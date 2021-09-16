@@ -37,7 +37,7 @@ pipeline {
         stage('Deploy to k8s'){
             steps {
                 script {
-                    k8s.deploy(dockerImage)
+                     sh 'kubectl apply -f nodejsapp.yaml'
                 }
         }
     }

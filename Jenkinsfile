@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-      imageName = 'rayan147/nodejsapp'
-      registryCredentialSet = 'dockerhub'
+      registry = 'rayan147/nodejsapp'
+      registryCredential = '79c0e82e-d596-4999-90bd-d759317cda6f'
       dockerImage = '' 
   
 }

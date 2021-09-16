@@ -34,5 +34,11 @@ pipeline {
                 } 
             }
         } 
+        stage('Deploy to k8s'){
+            steps {
+                script {
+                    k8s.deploy(dockerImage)
+                }
+        }
     }
 }

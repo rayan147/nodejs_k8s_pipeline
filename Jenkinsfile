@@ -16,7 +16,7 @@ pipeline {
             steps { 
                 script {
 
-                    dockerImage = docker.build(registry + ':' + '${env.BUILD_ID}', './')
+                    dockerImage = docker.build(registry)
 
                 }
             } 
@@ -26,6 +26,7 @@ pipeline {
                 echo 'Testing...'
             }
         }
+        
           stage('Deploy our image') { 
             steps { 
                 script { 

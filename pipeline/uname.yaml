@@ -1,0 +1,8 @@
+# uname
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: GET Os type
+      shell: uname

@@ -1,0 +1,13 @@
+[webservers]
+ec2-100-25-139-50.compute-1.amazonaws.com
+ec2-54-175-135-175.compute-1.amazonaws.com
+ec2-34-229-184-140.compute-1.amazonaws.com
+ec2-52-91-132-13.compute-1.amazonaws.com
+ec2-3-85-229-98.compute-1.amazonaws.com
+ec2-54-173-148-184.compute-1.amazonaws.com
+
+#[loadbalancers]
+
+[local]
+control
+

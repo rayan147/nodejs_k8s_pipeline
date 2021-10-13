@@ -1,0 +1,24 @@
+- hosts: worker01:worker02
+  become: yes
+  tasks:
+  - name: Create a user on the agent to be used by Jenkins
+    shell: useradd -m  jenkins
+    ignore_errors: yes
+  - name: create a directory for the ssh key
+    file: path=/var/lib/jenkins/.ssh  state=directory
+#   - name: generate the ssh key
+#     shell: ssh-keygen -t rsa -N "" -f /var/lib/jenkins/.ssh/id_rsa
+#     ignore_errors: yes
+#     register: ssh_key
+#   - name:  Add the public key to the authorized_keys file.  
+#     shell: echo "{{ ssh_key.stdout }}" >> /var/lib/jenkins/.ssh/authorized_keys
+  - name: add ownership to the jenkins user
+    shell: chown -R jenkins:jenkins /var/lib/jenkins/.ssh
+  - name: create known_hosts file
+    file: path=/var/lib/jenkins/.ssh/known_hosts state=touch
+#   - name: add the ssh key to the known hosts
+#     shell: ssh-keyscan -H {{ inventory_hostname }} >> /var/lib/jenkins/.ssh/known_hosts
+  - name: add  write/read permissions to the ssh key
+    shell: chmod 600 /var/lib/jenkins/.ssh/id_rsa
+  - name: add write/read/execute permissions to the ssh key to user
+    shell: chmod 700 /var/lib/jenkins/.ssh/authorized_keys

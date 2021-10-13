@@ -1,0 +1,9 @@
+- hosts: worker01:worker02
+  become: yes
+  tasks:
+  - name: run java agent
+    shell: java -jar /tmp/agent.jar -jnlpUrl http://192.168.0.11:8080/computer/worker01/jenkins-agent.jnlp -secret 8780a51cf3ff216795c45dc08bfa06cdd125cb4b4a13ef19477b38da0ffecadf -workDir "/var/jenkins"
+    register: agent_result
+  - name: log the result
+    debug:
+      msg: "{{ agent_result }}"

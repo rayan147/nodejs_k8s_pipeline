@@ -1,0 +1,17 @@
+- hosts: worker01:worker02
+  become: yes
+  tasks:
+    - name: Create a directory
+      file: path=~/.kube state=directory
+    - name: Copy the k8s config to the remote hosts
+      copy: 
+          src: config
+          dest: ~/.kube/config
+          mode: 0755
+    - name: reload profile
+      shell: source ~/.profile
+      ignore_errors: yes
+    - name: Check if the k8s config is valid
+      shell: kubectl get nodes
+      
+   

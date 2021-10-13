@@ -1,0 +1,125 @@
+../
+rayanramirez/
+| .BrowserLock/
+| .IdentityService/
+| .ServiceHub/
+| .Trash/
+| .amplify/
+| .android/
+| .ansible/
+| .atom/
+| .aws-sam/
+| .aws/
+| .bash_sessions/
+| .bitmonero/
+| .cache/
+| .cisco/
+| .config/
+| .cookiecutter_replay/
+| .digitalnote/
+| .docker/
+| .dotnet/
+| .electron/
+| .idlerc/
+| .ipython/
+| .java/
+| .kite/
+| .kube/
+| .local/
+| .minikube/
+| .mono/
+| .ngrok/
+| .node-gyp/
+| .npm/
+| .oh-my-zsh/
+| .omnisharp/
+| .pyenv-repository/
+| .pyenv/
+| .pylint.d/
+| .scripts/
+| .serverless/
+| .shared-ringdb/
+| .ssh/
+| .subversion/
+| .templateengine/
+| .tor/
+| .vim/
+| .vscode/
+| .zsh_sessions/
+| Applications/
+| Creative Cloud Files/
+| Desktop - Rayan’s MacBook Pro/
+| Desktop/
+| Documents/
+| Downloads/
+| Google Drive/
+| Inbox/
+| Library/
+| MAMP PRO/
+| Monero/
+| Movies/
+| Music/
+| Pictures/
+| Postman Agent/
+| Postman/
+| Public/
+| VirtualBox VMs/
+| VirtualBox VMs…/
+| dist/
+| go/
+| google_drive/
+| jobs/
+| logs/
+| nodes/
+| plugins/
+| ramirez.euris6@gmail.com Creative Cloud Files/
+| secrets/
+| state/
+| updates/
+| userContent/
+| users/
+| war/
+| web/
+| .CFUserTextEncoding
+| .DS_Store
+| .babel.json
+| .bash_aliases
+| .bash_aliases.old
+| .bash_history
+| .bash_profile
+| .bash_profile.pysave
+| .bashrc
+| .dbshell
+| .env_local
+| .gitconfig
+| .lastStarted
+| .lesshst
+| .mongorc.js
+| .netrc
+| .node_repl_history
+| .npmrc
+| .python_history
+| .rediscli_history
+| .serverlesscomponentsrc
+| .serverlessrc
+| .swo
+| .viminfo
+| .vimrc
+| .yarnrc
+| .zsh_history
+| .zshrc
+| Cardable sites.pdf
+| Show
+| config.xml
+| copy_reference_file.log
+| deeplinks uncategorized.txt
+| hudson.model.UpdateCenter.xml
+| identity.key.enc
+| jenkins.install.UpgradeWizard.state
+| nodeMonitors.xml
+| queue.xml
+| secret.key
+| secret.key.not-so-secret
+| .swp
+| .test.swp
+| .ssh~

@@ -1,0 +1,46 @@
+- hosts: all
+  become: yes
+
+
+  tasks:
+    - name: Remove the old files
+      file: path=/etc/apt/sources.list.d/docker.list state=absent
+    - name: Set up the repo
+      apt: 
+        pkg:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release 
+        state: latest
+        update_cache: yes
+    - name: Add the Docker GPG key
+      shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -"
+    - name: Add the Docker repo
+      shell: "add-apt-repository \"deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null" 
+    - name: Update the package list
+      apt:
+        update_cache: yes
+    - name: Update the package list
+      apt: name=* state=latest
+    - name: Install the package
+      apt: 
+        pkg: 
+         - docker-ce
+         - docker-ce-cli
+         - containerd.io
+        state:  present
+    - name: Create the docker group.
+      group: name=docker
+    - name: Add the current user to the docker group.
+      user: name={{ansible_user}} groups=docker 
+    - name: Start Docker
+      shell: systemctl start docker
+    - name: Enable Docker
+      shell: systemctl enable docker
+    - name: Check Docker status
+      shell: systemctl status docker
+    - name: Check Docker version
+      shell: docker version
+    

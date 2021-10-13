@@ -1,0 +1,10 @@
+- hosts: masters
+  become: yes
+  gather_facts: false
+
+  tasks:
+   - name: Pinging all servers
+     action: ping
+
+
+   

@@ -1,0 +1,8 @@
+- hosts: master
+  become: yes
+  tasks:
+  - name: create a jenkins path
+    file: path=/var/lib/jenkins/.ssh state=directory
+  - name: create jenkins key
+    shell: ssh-keygen -t rsa -b 4096 -f /var/lib/jenkins/.ssh/id_rsa -q -N ""
+    

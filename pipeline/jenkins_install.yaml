@@ -1,0 +1,19 @@
+- hosts: masters
+  become: yes
+  tasks:
+  - name: get the key
+    shell: wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add - 
+  - name: Add Jenkins repository
+    shell: sh -c echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list 
+  - name: Update repository
+    apt: name=* state=latest
+  - name: Install Jenkins
+    apt: pkg=jenkins state=present
+  - name: Create Jenkins user
+    user: name=jenkins
+  - name: Create Jenkins home directory
+    file: path=/var/lib/jenkins owner=jenkins group=jenkins mode=0755 state=directory
+  - name: Create Jenkins configuration directory
+    file: path=/etc/jenkins state=directory
+  - name: Cat the key
+    shell: cat /var/lib/jenkins/secrets/initialAdminPassword

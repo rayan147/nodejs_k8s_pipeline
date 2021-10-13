@@ -1,0 +1,10 @@
+- hosts: master
+  become: yes
+#   vars:
+#     file_path: jenkins-cli.jar
+  tasks:
+  - name: Copy the file to the masters
+    copy: 
+      src: jenkins-cli.jar
+      dest: /tmp/jenkins-cli.jar
+      mode: 0755
